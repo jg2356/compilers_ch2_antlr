@@ -16,7 +16,7 @@ public class Expr241bParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		S=1, WS=2;
+		T__0=1, T__1=2, T__2=3, WS=4;
 	public static final int
 		RULE_s = 0;
 	public static final String[] ruleNames = {
@@ -24,9 +24,10 @@ public class Expr241bParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
+		null, "'('", "')'", "'()'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "S", "WS"
+		null, null, null, null, "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -78,7 +79,12 @@ public class Expr241bParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 	public static class SContext extends ParserRuleContext {
-		public TerminalNode S() { return getToken(Expr241bParser.S, 0); }
+		public List<SContext> s() {
+			return getRuleContexts(SContext.class);
+		}
+		public SContext s(int i) {
+			return getRuleContext(SContext.class,i);
+		}
 		public SContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -89,22 +95,44 @@ public class Expr241bParser extends Parser {
 		SContext _localctx = new SContext(_ctx, getState());
 		enterRule(_localctx, 0, RULE_s);
 		try {
-			setState(4);
-			switch (_input.LA(1)) {
-			case S:
+			setState(13);
+			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
+			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(2);
-				match(S);
+				match(T__0);
+				setState(3);
+				s();
+				setState(4);
+				match(T__1);
+				setState(5);
+				s();
 				}
 				break;
-			case EOF:
+			case 2:
 				enterOuterAlt(_localctx, 2);
+				{
+				setState(7);
+				match(T__0);
+				setState(8);
+				s();
+				setState(9);
+				match(T__1);
+				}
+				break;
+			case 3:
+				enterOuterAlt(_localctx, 3);
+				{
+				setState(11);
+				match(T__2);
+				}
+				break;
+			case 4:
+				enterOuterAlt(_localctx, 4);
 				{
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -119,9 +147,12 @@ public class Expr241bParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\4\t\4\2\t\2\3\2\3"+
-		"\2\5\2\7\n\2\3\2\2\2\3\2\2\2\b\2\6\3\2\2\2\4\7\7\3\2\2\5\7\3\2\2\2\6\4"+
-		"\3\2\2\2\6\5\3\2\2\2\7\3\3\2\2\2\3\6";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\6\22\4\2\t\2\3\2"+
+		"\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\5\2\20\n\2\3\2\2\2\3\2\2\2\23"+
+		"\2\17\3\2\2\2\4\5\7\3\2\2\5\6\5\2\2\2\6\7\7\4\2\2\7\b\5\2\2\2\b\20\3\2"+
+		"\2\2\t\n\7\3\2\2\n\13\5\2\2\2\13\f\7\4\2\2\f\20\3\2\2\2\r\20\7\5\2\2\16"+
+		"\20\3\2\2\2\17\4\3\2\2\2\17\t\3\2\2\2\17\r\3\2\2\2\17\16\3\2\2\2\20\3"+
+		"\3\2\2\2\3\17";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

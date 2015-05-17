@@ -1,7 +1,6 @@
 grammar Expr241a;
 
-s : S ;
-S : '+' S S
-  | '-' S S
+s : '+' s s
+  | '-' s s
   | 'a' ;
 WS : [\r\n]+ -> skip ;
